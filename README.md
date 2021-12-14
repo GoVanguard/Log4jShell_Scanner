@@ -4,12 +4,12 @@ The source code in this repository provides GoVanguard clients with a shell appl
 
 e.g.
 
-example.com
-ads.example.com
-ads.example.com/please-no-more-ads.html
-ads.example.com/method
-ads.example.com/method?myQarg=userResponse
-ads.example.com/method?myQarg=userResponse&&myOtherArg=anotherResponse
+example.com  
+ads.example.com  
+ads.example.com/please-no-more-ads.html  
+ads.example.com/method  
+ads.example.com/method?myQarg=userResponse  
+ads.example.com/method?myQarg=userResponse&&myOtherArg=anotherResponse  
 
 # TLDR
 
