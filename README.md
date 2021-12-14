@@ -13,7 +13,7 @@ ads.example.com/method?myQarg=userResponse&&myOtherArg=anotherResponse
 
 # TLDR
 
-Make sure to modify the last line of code below. It should contain the uuid4 that appears when you navigate to the following link: 
+Make sure to modify the last line of code below. It should contain the uuid4 that appears when you navigate to the following link: [Log4jShell Tester](https://log4shell.huntress.com/)
 ```shell
 sudo apt-get update
 sudo apt-get install python3 python3-pip
