@@ -34,7 +34,7 @@ python3 scanForLog4jVulnerability.py -f ./domains.txt -t 2 -k -s "http" -s "http
 ```shell
 git clone https://github.com/GoVanguard/Log4jShell_Scanner.git
 ```
-4. Install Python.
+3. Install Python.
 ```shell
 sudo apt-get update
 sudo apt-get install python3 python3-pip
