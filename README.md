@@ -50,10 +50,14 @@ source bin/activate
 
 Example from Huntress: {jndi:ldap://log4shell.huntress.com:1389/967d1170-4733-4c07-bbd8-c3bc9233e1ba}  
 
-Shout out to our peers at Huntress: Created by @calebjstewart, Jason Slagle and @_JohnHammond.
-This too shall pass.
+Shout out to our peers at Huntress: Caleb Stewart, Jason Slagle, and John Hammond, who created this payload generator over the weekend. This too shall pass.
 
-6. 
+6. Update the domains.txt file with your end points. Examples are above and in the text file.
+7. Run the script. Add additional flags as necessary.
+```shell
+python3 scanForLog4jVulnerability.py -f domains.txt -s http:// -p {jndi:ldap://log4shell.huntress.com:1389/967d1170-4733-4c07-bbd8-c3bc9233e1ba} -q -i -z -b
+```
+python3 scan
 
 
 # Background
