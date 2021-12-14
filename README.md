@@ -13,13 +13,15 @@ ads.example.com/method?myQarg=userResponse&&myOtherArg=anotherResponse
 
 # TLDR
 
+Make sure to modify the last line of code below. It should contain the uuid4 that appears when you navigate to the following link: 
 ```shell
 sudo apt-get update
 sudo apt-get install python3 python3-pip
 python3 -m venv Log4jShell_Scanner 
 cd Log4jShell_Scanner/
 python3 -m pip install -r requirements.txt
-
+source bin/activate
+python3 scanForLog4jVulnerability.py -f domains.txt -s http:// -p {jndi:ldap://log4shell.huntress.com:1389/obtain-a-uuid4-from-huntress}
 ```
 
 # Setup
@@ -41,8 +43,17 @@ python3 -m pip install -r requirements.txt
 ```
 4. Activate the virutal environment.
 ```shell
+source bin/activate
 ```
-5. Create or obtain a test payload. Huntress generates test payloads at the following link: https://log4shell.huntress.com/
+5. Create a custom jndi payload or obtain a test payload. Huntress generates test payloads at the following link: [Log4Shell Tester](https://log4shell.huntress.com/)  
+
+Example from Huntress: {jndi:ldap://log4shell.huntress.com:1389/967d1170-4733-4c07-bbd8-c3bc9233e1ba}  
+
+Shout out to our peers at Huntress: Created by @calebjstewart, Jason Slagle and @_JohnHammond.
+This too shall pass.
+
+6. 
+
 
 # Introduction and Background
 
