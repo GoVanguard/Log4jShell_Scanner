@@ -13,7 +13,7 @@ ads.example.com/method?myQarg=userResponse&&myOtherArg=anotherResponse
 
 # TLDR
 
-Make sure to modify the last line of code below. It should contain the uuid4 that appears when you navigate to the following link: [Log4jShell Tester](https://log4shell.huntress.com/)
+Make sure to modify the last line of code below. It should contain the uuid4 that appears when you navigate to the following link: [Huntress Payload Generator](https://log4shell.huntress.com/)
 ```shell
 sudo apt-get update
 sudo apt-get install python3 python3-pip
@@ -45,7 +45,7 @@ python3 -m pip install -r requirements.txt
 ```shell
 source bin/activate
 ```
-5. Create a custom jndi payload or obtain a test payload. Huntress generates test payloads at the following link: [Log4Shell Tester](https://log4shell.huntress.com/)  
+5. Create a custom jndi payload or obtain a test payload. Huntress generates test payloads at the following link: [Huntress Payload Generator](https://log4shell.huntress.com/)  
 
 Example from Huntress: {jndi:ldap://log4shell.huntress.com:1389/967d1170-4733-4c07-bbd8-c3bc9233e1ba}  
 
@@ -55,27 +55,10 @@ This too shall pass.
 6. 
 
 
-# Introduction and Background
+# Background
 
 The Log4jShell vulnerability was initially discovered by Minecraft gaming enthusiasts during Thanksgiving Recess, which occurred sometime between 20-23 November 2021. A researcher with AliBaba's Cloud Security Team reported the vulnerability to Apache on 24 November 2021. MITRE assigned this vulnerability CVE-2021-44228 on 26 November 2021, which was still being used in the Minecraft gaming community. Unfortunately, The Apache Software Foundation did not prioritize mitigating the vulnerability during Thanksgiving Recess. It is very likely that their leadership, grantees, and the open source community of contributors at large were on holiday.
 
 On Friday 9 December 2021, the GitHub user TangXiaFeng7 published the source code for the Minimum Viable Product (MVP) for this exploit online at 10:32AM 9 November 2021. Minutes after this publication hit the internet the exploit became weaponized. Since the Log4jShell vulnerability affects many server based software systems within the industry at the Application and Session layers, the impact that this exploit publication has on the industry is significant enough to motivate a rapid crowd-sourced solution. Initial commits that indicate The Apache Software Foundation's open source community was debugging the vulnerability hit the internet at 12:38PM 9 November 2021. Within eight hours of CVE-2021-44228 MVP hitting the internet, The Apache Software Foundation's team of open source developers fixed the vulnerability. The final pull request was accepted at 18:23 9 November 2021.
 
-This shell script creates a vulnerable web application that uses apache-log4j-2.12.1 from the pull request published on 2020-07-03.
-
-# Setup
-
-Setup requires a bash shell. On Windows this can be accomplished with the Windows Subsystem for Linux, GitBash, Anaconda, miniconda, or any other virtual bash environment that you feel comfortable using and is not connected to other resources within your corporate network. This bash script should run on Mac and Linux requiring only super user permission.
-
-```shell
-sudo bash runIt.sh
-```
-
-# Teardown
-Teardown has the same requirements as setup and you must remember to stop this service. If you do not stop this service, then your compartmentalized system is sill vulnerable to CVE-2021-44228.
-
-```shell
-sudo bash stopIt.sh
-```
-
-
+This shell script scans a vulnerable web application that is using a version of apache-log4j < 2.15.0.
