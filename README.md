@@ -19,6 +19,7 @@ If you generate a payload from Huntress, then keep the webpage open and keep in 
 ```shell
 sudo apt-get update
 sudo apt-get install python3 python3-pip
+git clone https://github.com/GoVanguard/Log4jShell_Scanner.git
 python3 -m venv Log4jShell_Scanner 
 cd Log4jShell_Scanner/
 python3 -m pip install -r requirements.txt
