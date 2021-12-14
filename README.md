@@ -29,8 +29,8 @@ python3 scanForLog4jVulnerability.py -f ./domains.txt -t 2 -k -s "http" -s "http
 
 # Setup
 
-1. Download the Log4jShell_Scanner at the following link: [Log4jShell_Scanner](https://github.com/GoVanguard/Log4jShell_Scanner)
-2. Clone the repository
+1. Download the Log4jShell_Scanner at the following link: [Log4jShell_Scanner](https://github.com/GoVanguard/Log4jShell_Scanner).
+2. Clone the repository.
 ```shell
 git clone https://github.com/GoVanguard/Log4jShell_Scanner.git
 ```
