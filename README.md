@@ -30,21 +30,25 @@ python3 scanForLog4jVulnerability.py -f ./domains.txt -t 2 -k -s "http" -s "http
 # Setup
 
 1. Download the Log4jShell_Scanner at the following link: [Log4jShell_Scanner](https://github.com/GoVanguard/Log4jShell_Scanner)
-2. Install Python.
+2. Clone the repository
+```shell
+git clone https://github.com/GoVanguard/Log4jShell_Scanner.git
+```
+4. Install Python.
 ```shell
 sudo apt-get update
 sudo apt-get install python3 python3-pip
 ```
-2. Install a virtual environment encapsulating the Log4jShell_Scanner repository.
+4. Install a virtual environment encapsulating the Log4jShell_Scanner repository.
 ```shell
 python3 -m venv Log4jShell_Scanner 
 ```
-3. Install the dependent libraries.
+5. Install the dependent libraries.
 ```shell
 cd Log4jShell_Scanner/
 python3 -m pip install -r requirements.txt
 ```
-4. Activate the virutal environment.
+6. Activate the virutal environment.
 ```shell
 source bin/activate
 ```
