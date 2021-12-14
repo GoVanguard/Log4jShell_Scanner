@@ -13,18 +13,36 @@ ads.example.com/method?myQarg=userResponse&&myOtherArg=anotherResponse
 
 # TLDR
 
-Setup
+```shell
+sudo apt-get update
+sudo apt-get install python3 python3-pip
+python3 -m venv Log4jShell_Scanner 
+cd Log4jShell_Scanner/
+python3 -m pip install -r requirements.txt
+
+```
+
+# Setup
 
 1. Download the Lib4jShell_Scanner at the following link: [Lib4jShell_Scanner](https://github.com/GoVanguard/Log4jShell_Scanner)
 1. Install Python.
 ```shell
 sudo apt-get update
-sudo apt-get install python3.10 python3-pip
+sudo apt-get install python3 python3-pip
 ```
-2. Install a virtual environment.
+2. Install a virtual environment encapsulating the Log4jShell_Scanner repository.
 ```shell
-python3 -m venv 
+python3 -m venv Log4jShell_Scanner 
 ```
+3. Install the dependent libraries.
+```shell
+cd Log4jShell_Scanner/
+python3 -m pip install -r requirements.txt
+```
+4. Activate the virutal environment.
+```shell
+```
+5. Create or obtain a test payload. Huntress generates test payloads at the following link: https://log4shell.huntress.com/
 
 # Introduction and Background
 
