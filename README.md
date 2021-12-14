@@ -1,8 +1,10 @@
 # log4jShell Scanner
 
-This shell script scans a vulnerable web application that is using a version of apache-log4j < 2.15.0. GoVanguard clients may use this scanner to test a list of domains for the Log4jShell Common Vulnerability and Exposures (CVE)-2021-44228. It accepts a text file one domain, sub-domain, or domain branch per line no delimitation (commas, semicolons, etc.).
+This shell script scans a vulnerable web application that is using a version of apache-log4j < 2.15.0. This application is a static implementation, which means it does not perform domain, sub-domain, branch, or form input parameter discovery. To test your web-features, web-pages, and domains, you will have to construct a list identifying the vulnerable locations within your web enterprise and explicitly identify the locations to test in the domains.txt file. This script accepts a text file one domain, sub-domain, or domain branch per line with no delimitation (commas, semicolons, etc.).
 
-e.g.
+This system is issued as is under the GNU General Public License, version 3 (GPL3). Improper syntax may produce false positives. GoVanguard recommends double checking your command line syntax against the example provided in this readme and ensuring that your implementation readsback a vulnerability on an example webpage: [Available Here](https://github.com/GoVanguard/Log4jShell_Vulnerable_Site)
+
+Domains.txt e.g.
 
 example.com  
 ads.example.com  
@@ -12,9 +14,8 @@ ads.example.com/method?myQarg=userResponse
 ads.example.com/method?myQarg=userResponse&&myOtherArg=anotherResponse  
 
 # TLDR
-Note: If you obtain a payload from Huntress, then remove the $ from your payload. Your payload must point to a unique webpage from Huntress or you must generate your own custom payload. Logs are your vulnerable systems are kept for 30 minutes.
-Aditionally, please ensure that you modify the domains.txt file in this repository and obtain a payload from the following link: [Huntress Payload Generator](https://log4shell.huntress.com/) before using this script.
-
+Please ensure that you modify the domains.txt file in this repository and obtain a payload from the following link: [Huntress Payload Generator](https://log4shell.huntress.com/) or generate your own payload before using this script.
+If you generate a payload from Huntress, then keep the webpage open and keep in mind the results are cached for 30 minutes.
 ```shell
 sudo apt-get update
 sudo apt-get install python3 python3-pip
@@ -22,13 +23,13 @@ python3 -m venv Log4jShell_Scanner
 cd Log4jShell_Scanner/
 python3 -m pip install -r requirements.txt
 source bin/activate
-python3 scanForLog4jVulnerability.py -f domains.txt -s http:// -p {jndi:ldap://log4shell.huntress.com:1389/obtain-a-uuid4-from-huntress}
+python3 scanForLog4jVulnerability.py -f ./domains.txt -t 2 -k -s "http" -s "https" -p '${jndi:ldap://log4shell.huntress.com:1389/967d1170-4733-4c07-bbd8-c3bc9233e1ba}' -b -z -q -i -v "{'Your-Auth-Token': 'f3e2e050-866b-435a-9561-eaa80ecc8ceb', 'Accept': 'application/application_name.json'}"
 ```
 
 # Setup
 
-1. Download the Lib4jShell_Scanner at the following link: [Lib4jShell_Scanner](https://github.com/GoVanguard/Log4jShell_Scanner)
-1. Install Python.
+1. Download the Log4jShell_Scanner at the following link: [Log4jShell_Scanner](https://github.com/GoVanguard/Log4jShell_Scanner)
+2. Install Python.
 ```shell
 sudo apt-get update
 sudo apt-get install python3 python3-pip
@@ -46,19 +47,19 @@ python3 -m pip install -r requirements.txt
 ```shell
 source bin/activate
 ```
+
 5. Create a custom jndi payload or obtain a test payload. Huntress generates test payloads at the following link: [Huntress Payload Generator](https://log4shell.huntress.com/)  
 
-Example from Huntress: {jndi:ldap://log4shell.huntress.com:1389/967d1170-4733-4c07-bbd8-c3bc9233e1ba}  
+Example from Huntress: ${jndi:ldap://log4shell.huntress.com:1389/967d1170-4733-4c07-bbd8-c3bc9233e1ba}  
 
 Shout out to our peers at Huntress: Caleb Stewart, Jason Slagle, and John Hammond, who created this payload generator over the weekend. This too shall pass.
 
-6. Update the domains.txt file with your end points. Examples are above and in the text file.
-7. Run the script. Add additional flags as necessary.
-```shell
-python3 scanForLog4jVulnerability.py -f domains.txt -s http:// -p {jndi:ldap://log4shell.huntress.com:1389/967d1170-4733-4c07-bbd8-c3bc9233e1ba} -q -i -z -b
-```
-python3 scan
+6. Update the domains.txt file with your end points. Examples are above and in the text file included in this repository.
 
+7. Run the script and add additional flags as necessary. An example is included below to help you implement each flag.
+```shell
+python3 scanForLog4jVulnerability.py -f ./domains.txt -t 2 -k -s "http" -s "https" -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -b -z -q -i -v "{'Your-Auth-Token': 'f3e2e050-866b-435a-9561-eaa80ecc8ceb', 'Accept': 'application/application_name.json'}"
+```
 
 # Background
 
