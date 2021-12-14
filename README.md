@@ -1,6 +1,6 @@
 # log4jShell Scanner
 
-The source code in this repository provides GoVanguard clients with a shell application that scans a list of domains for the Log4jShell Common Vulnerability and Exposures (CVE)-2021-44228. It accepts a text file one domain, sub-domain, or domain branch per line no delimitation (commas, semicolons, etc.).
+This shell script scans a vulnerable web application that is using a version of apache-log4j < 2.15.0. GoVanguard clients may use this scanner to test a list of domains for the Log4jShell Common Vulnerability and Exposures (CVE)-2021-44228. It accepts a text file one domain, sub-domain, or domain branch per line no delimitation (commas, semicolons, etc.).
 
 e.g.
 
@@ -12,8 +12,9 @@ ads.example.com/method?myQarg=userResponse
 ads.example.com/method?myQarg=userResponse&&myOtherArg=anotherResponse  
 
 # TLDR
+Note: If you obtain a payload from Huntress, then remove the $ from your payload. Your payload must point to a unique webpage from Huntress or you must generate your own custom payload. Logs are your vulnerable systems are kept for 30 minutes.
+Aditionally, please ensure that you modify the domains.txt file in this repository and obtain a payload from the following link: [Huntress Payload Generator](https://log4shell.huntress.com/) before using this script.
 
-Make sure to modify the last line of code below. It should contain the uuid4 that appears when you navigate to the following link: [Huntress Payload Generator](https://log4shell.huntress.com/)
 ```shell
 sudo apt-get update
 sudo apt-get install python3 python3-pip
@@ -61,4 +62,3 @@ The Log4jShell vulnerability was initially discovered by Minecraft gaming enthus
 
 On Friday 9 December 2021, the GitHub user TangXiaFeng7 published the source code for the Minimum Viable Product (MVP) for this exploit online at 10:32AM 9 November 2021. Minutes after this publication hit the internet the exploit became weaponized. Since the Log4jShell vulnerability affects many server based software systems within the industry at the Application and Session layers, the impact that this exploit publication has on the industry is significant enough to motivate a rapid crowd-sourced solution. Initial commits that indicate The Apache Software Foundation's open source community was debugging the vulnerability hit the internet at 12:38PM 9 November 2021. Within eight hours of CVE-2021-44228 MVP hitting the internet, The Apache Software Foundation's team of open source developers fixed the vulnerability. The final pull request was accepted at 18:23 9 November 2021.
 
-This shell script scans a vulnerable web application that is using a version of apache-log4j < 2.15.0.
