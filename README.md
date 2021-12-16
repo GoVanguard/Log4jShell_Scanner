@@ -162,13 +162,6 @@ python3 scanForLog4jVulnerability.py -f ./domains.txt -p '${jndi:ldap://log4shel
 ```
 
 
-### Example Log4jShell_Scanner command using the -s Schemes flag:
-
-```shell
-python3 scanForLog4jVulnerability.py -f ./domains.txt -s "https" -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}'
-```
-
-
 ## Payload -p or --payload (required)
 
 A payload is any string of code that enables remote code execution on a vulnerable system without permission. Log4jShell payloads are simple to implement because a threat actor can point a vulnerable system to any location on the internet, then exploit the vulnerable system from that location. This web page generates a safe payload that points back to a cache on the very same webpage. When the payload executes successfully, a callback records the details where that callback occurred, which allows you to rapidly test and record vulnerable systems. When you visit the web page below, your visit generates a payload that is designed to callback to a cache on the same web page. Keep in mind that each visit or refresh generates a new payload and associated cache. Also, every record created within the cache has a 30 minute time to live, which reduces the cost to Huntress for hosting this utility, but requires you to diligently extract the logged cache. To generate a payload and cache for checking your systems, visit the following link: [Huntress Payload Generator](https://log4shell.huntress.com/)
