@@ -119,12 +119,12 @@ Webpages that are not in a production environment may not possess valid Secure S
 python3 scanForLog4jVulnerability.py -f ./domains.txt -s "https" -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -k
 ```
 
-## Schemes -s or --schemes (required)
+## Schemes -s or --schemes (optional)
 
 Hypertext Transfer Protocol (HTTP) and Hypertext Transfer Protocol Secure (HTTPS) are the only schemes currently supported. If you do not specify a scheme, then this shell script will test both HTTP and HTTPS.
 
 ```shell
-python3 scanForLog4jVulnerability.py -f ./domains.txt -s "http" -s "https" -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}'
+python3 scanForLog4jVulnerability.py -f ./domains.txt -s "http" -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}'
 ```
 
 ## Payload -p or --payload (required)
