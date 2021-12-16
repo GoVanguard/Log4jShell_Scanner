@@ -133,10 +133,10 @@ python3 scanForLog4jVulnerability.py -f ./domains.txt -p '${jndi:ldap://log4shel
 
 Hypertext Transfer Protocol (HTTP) and Hypertext Transfer Protocol Secure (HTTPS) are the only schemes currently supported. If you do not specify a scheme, then this shell script will test both HTTP and HTTPS.
 
-### Example Log4jShell_Scanner command using the -k Ignore Invalid Certificates flag:
+### Example Log4jShell_Scanner command using the -s Schemes flag:
 
 ```shell
-python3 scanForLog4jVulnerability.py -f ./domains.txt -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}'
+python3 scanForLog4jVulnerability.py -f ./domains.txt -s "https" -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}'
 ```
 
 
