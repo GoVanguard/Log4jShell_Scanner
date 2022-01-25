@@ -64,7 +64,7 @@ Shout out to our peers at Huntress: Caleb Stewart, Jason Slagle, and John Hammon
 
 9. Run the script and add additional flags as necessary. An example is included below to help you implement each flag.
 ```shell
-python3 scanForLog4jVulnerability.py -f ./domains.txt -t 2 -k -s "http" -s "https" -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -b -z -q -i -v "{'Your-Auth-Token': 'f3e2e050-866b-435a-9561-eaa80ecc8ceb', 'Accept': 'application/application_name.json'}"
+python3 scanForLog4jVulnerability.py -f ./domains.txt -t 2 -k -y -s -p '${jndi:ldap://log4shell.huntress.com:1389/490de66a-129b-41b4-b194-69071695c39b}' -b -z -q -i -v "{'Your-Auth-Token': 'f3e2e050-866b-435a-9561-eaa80ecc8ceb', 'Accept': 'application/application_name.json'}"
 ```
 
 # Flags
