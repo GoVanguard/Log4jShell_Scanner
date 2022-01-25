@@ -25,7 +25,7 @@ python3 -m venv Log4jShell_Scanner
 cd Log4jShell_Scanner/  
 python3 -m pip install -r requirements.txt  
 source bin/activate  
-python3 scanForLog4jVulnerability.py -f ./domains.txt -t 2 -k -s "http" -s "https" -p '${jndi:ldap://log4shell.huntress.com:1389/967d1170-4733-4c07-bbd8-c3bc9233e1ba}' -b -z -q -i -v "{'Your-Auth-Token': 'f3e2e050-866b-435a-9561-eaa80ecc8ceb', 'Accept': 'application/application_name.json'}"  
+python3 scanForLog4jVulnerability.py -f ./domains.txt -t 2 -k -y -s -p '${jndi:ldap://log4shell.huntress.com:1389/967d1170-4733-4c07-bbd8-c3bc9233e1ba}' -b -z -q -i -v "{'Your-Auth-Token': 'f3e2e050-866b-435a-9561-eaa80ecc8ceb', 'Accept': 'application/application_name.json'}"  
 ```
 
 
